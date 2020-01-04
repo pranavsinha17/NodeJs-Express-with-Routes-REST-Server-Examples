@@ -7,28 +7,9 @@ const app=express();
 app.use(bodyPasrer.json());
 app.use(morgan("dev"));
 app.use(express.static(__dirname+"/public"));
+const dishRoute=require("./routes/dishRoutes.js");
+app.use("/dishes",dishRoute);
 
-app.all("/dishes",(req,res,next)=>{
-    res.statusCode=200;
-    next();
-});
-app.get("/dishes",(req,res,next)=>{
-    res.statusCode=200;
-    res.end("Will send you all the dishes ");
-});
-app.post("/dishes",(req,res,next)=>{
-    res.statusCode=200;
-    res.end("Will add the dish with"+req.body.name+" and detail"+req.body.description);
-});
-app.put("/dishes",(req,res,next)=>{
-    res.statusCode=403;
-    res.end("Put operations are not supported");
-});
-
-app.delete("/dishes",(req,res,next)=>{
-    res.statusCode=200;
-    res.end("Will delete all the dishes");
-});
 app.all("/dishes/:dishId",(req,res,next)=>{
     res.statusCode=200;
     next();
