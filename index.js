@@ -2,7 +2,14 @@ const express=require('express');
 const http=require('http');
 const morgan=require('morgan');
 const bodyPasrer=require('body-parser');
+const mongoose = require('mongoose');
 
+const url = 'mongodb://localhost:27017/confusion';
+const connect = mongoose.connect(url);
+
+connect.then((db) => {
+    console.log("Connected correctly to server");
+}, (err) => { console.log(err); });
 const app=express();
 app.use(bodyPasrer.json());
 app.use(morgan("dev"));
@@ -19,4 +26,4 @@ app.use((req,res,next)=>{
     res.end("<html><body><h1>This is Express Server</h1></body></html>");
 });
 const server=http.createServer(app);
-server.listen(3000,()=>console.log("Liosten to Port 3000"));
+server.listen(3000,()=>console.log("Listen to Port 3000"));
