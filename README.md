@@ -6,6 +6,7 @@ After Cloning the package do following :
 2. npm install express<br>
 3. npm install morgan<br>
 4. npm install body-parser<br>
-5. npm start<br>
-6. do postman requests(GET,POST,PUT,DELETE)<br><br>
+5. npm install mongoose<br>
+6. npm start<br>
+7. do postman requests(GET,POST,PUT,DELETE)<br><br>
 <h1>Note: Do run on localhost 3000;</h1>
